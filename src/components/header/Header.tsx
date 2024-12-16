@@ -51,7 +51,7 @@ export const Header: React.FC<HeaderProps> = ({ walletData, isWalletConnected })
         >
           <NavButton label="MINT" onClick={() => {}} locked={true} />
           <NavButton label="STAKE" onClick={() => {}} locked={true} />
-          <NavButton label="GRIMOIRE" to="/grimoire" locked={false} />
+          <NavButton label="GRIMOIRE" to="/grimoire" onClick={() => setMenuOpen(false)} locked={false} />
           
           {/* {isWalletConnected ? (
             <div className="flex items-center gap-2 relative">
