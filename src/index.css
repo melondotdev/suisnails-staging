@@ -23,6 +23,9 @@
 
 /* Hide the warning when in landscape */
 @media (orientation: landscape) {
+  header {
+    display: none; /* Hide the header in landscape mode */
+  }
   .orientation-warning {
     display: none;
   }

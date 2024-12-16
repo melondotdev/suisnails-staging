@@ -6,6 +6,7 @@ import { BASE_MAP, OVERLAY_MAP } from './constants/tileMap';
 import { OBJECTS } from './constants/objects';
 import { useAssets } from './hooks/useAssets';
 import { drawScene } from './utils/drawScene';
+import { BackButton } from './BackButton';
 
 const INTERACT_DISTANCE = 32; // Maximum distance to interact with objects (1 tile)
 
@@ -18,7 +19,7 @@ export const Game: React.FC = () => {
       const screenWidth = window.innerWidth;
       const screenHeight = window.innerHeight;
 
-      // Calculate the canvas size while maintaining aspect ratio (4:3)
+      // Maintain aspect ratio 4:3
       const aspectRatio = 4 / 3;
       let newWidth = screenWidth;
       let newHeight = Math.floor(screenWidth / aspectRatio);
@@ -31,7 +32,7 @@ export const Game: React.FC = () => {
       setCanvasSize({ width: newWidth, height: newHeight });
     };
 
-    handleResize(); // Initial adjustment
+    handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -241,6 +242,7 @@ export const Game: React.FC = () => {
   
   return (
     <div style={{ position: 'relative', width: `${ROOM_WIDTH}px`, margin: '0 auto' }}>
+      <BackButton to="/" />
       <RotationWarning />
       <canvas
         ref={canvasRef}
