@@ -242,7 +242,6 @@ export const Game: React.FC = () => {
   
   return (
     <div style={{ position: 'relative', width: `${ROOM_WIDTH}px`, margin: '0 auto' }}>
-      <BackButton to="/" />
       <RotationWarning />
       <canvas
         ref={canvasRef}
