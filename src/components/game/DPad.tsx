@@ -71,7 +71,7 @@ export const DPad: FC<DPadProps> = ({ onMove, onInteract }) => {
         onTouchStart={() => handlePress('up')}
         onTouchEnd={() => handleRelease('up')}
       >
-        ↑
+        w
       </div>
       <div />
       <div
@@ -81,7 +81,7 @@ export const DPad: FC<DPadProps> = ({ onMove, onInteract }) => {
         onTouchStart={() => handlePress('left')}
         onTouchEnd={() => handleRelease('left')}
       >
-        ←
+        a
       </div>
       <button
         style={{
@@ -90,7 +90,7 @@ export const DPad: FC<DPadProps> = ({ onMove, onInteract }) => {
         }}
         onClick={onInteract}
       >
-        X
+        x
       </button>
       <div
         style={buttonStyle}
@@ -99,7 +99,7 @@ export const DPad: FC<DPadProps> = ({ onMove, onInteract }) => {
         onTouchStart={() => handlePress('right')}
         onTouchEnd={() => handleRelease('right')}
       >
-        →
+        d
       </div>
       <div />
       <div
@@ -109,7 +109,7 @@ export const DPad: FC<DPadProps> = ({ onMove, onInteract }) => {
         onTouchStart={() => handlePress('down')}
         onTouchEnd={() => handleRelease('down')}
       >
-        ↓
+        s
       </div>
       <div />
     </div>

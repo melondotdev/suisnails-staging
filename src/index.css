@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Fullscreen overlay for portrait mode */
+@media (orientation: portrait) {
+  .orientation-warning {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+    z-index: 9999;
+  }
+}
+
+/* Hide the warning when in landscape */
+@media (orientation: landscape) {
+  .orientation-warning {
+    display: none;
+  }
+}

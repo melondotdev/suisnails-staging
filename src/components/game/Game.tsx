@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { DPad } from './DPad';
 import { ROOM_WIDTH, ROOM_HEIGHT } from './constants/tiles';
+import { RotationWarning } from "./RotationWarning"
 import { BASE_MAP, OVERLAY_MAP } from './constants/tileMap';
 import { OBJECTS } from './constants/objects';
 import { useAssets } from './hooks/useAssets';
@@ -10,6 +11,31 @@ const INTERACT_DISTANCE = 32; // Maximum distance to interact with objects (1 ti
 
 export const Game: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const [canvasSize, setCanvasSize] = useState({ width: 640, height: 480 });
+
+  useEffect(() => {
+    const handleResize = () => {
+      const screenWidth = window.innerWidth;
+      const screenHeight = window.innerHeight;
+
+      // Calculate the canvas size while maintaining aspect ratio (4:3)
+      const aspectRatio = 4 / 3;
+      let newWidth = screenWidth;
+      let newHeight = Math.floor(screenWidth / aspectRatio);
+
+      if (newHeight > screenHeight) {
+        newHeight = screenHeight;
+        newWidth = Math.floor(screenHeight * aspectRatio);
+      }
+
+      setCanvasSize({ width: newWidth, height: newHeight });
+    };
+
+    handleResize(); // Initial adjustment
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  
   const [player, setPlayer] = useState({
     x: 64,
     y: 64,
@@ -18,7 +44,7 @@ export const Game: React.FC = () => {
     speed: 7,
     direction: 'right', // default facing right
   });
-
+  
   const [keysPressed, setKeysPressed] = useState<{ [key: string]: boolean }>({});
   const [interactionText, setInteractionText] = useState<{ title: string; body: string } | null>(null);
   const [highlightedObject, setHighlightedObject] = useState<{ x: number; y: number } | null>(null);
@@ -215,11 +241,17 @@ export const Game: React.FC = () => {
   
   return (
     <div style={{ position: 'relative', width: `${ROOM_WIDTH}px`, margin: '0 auto' }}>
+      <RotationWarning />
       <canvas
         ref={canvasRef}
-        width={ROOM_WIDTH}
-        height={ROOM_HEIGHT}
-        style={{ border: '2px solid #fff', display: 'block' }}
+        width={canvasSize.width}
+        height={canvasSize.height}
+        style={{
+          display: 'block',
+          margin: '0 auto',
+          border: '2px solid #000',
+          backgroundColor: '#000',
+        }}
       />
       {interactionText && (
         <div
