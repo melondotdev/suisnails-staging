@@ -17,7 +17,7 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({ walletData, isWalletConnected }) => {
   const [disconnectionRequest, setDisconnectionRequest] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false); // State to toggle mobile menu
-
+  
   return (
     <header className="fixed top-0 left-0 right-0 bg-zinc-950/80 backdrop-blur-sm border-b border-zinc-900 z-50 font-mono text-s text-zinc-400">
       <div className="max-w-4xl mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
@@ -51,10 +51,8 @@ export const Header: React.FC<HeaderProps> = ({ walletData, isWalletConnected })
         >
           <NavButton label="MINT" onClick={() => {}} locked={true} />
           <NavButton label="STAKE" onClick={() => {}} locked={true} />
-          <NavButton label="GRIMOIRE" onClick={() => {}} locked={true} />
+          <NavButton label="GRIMOIRE" to="/grimoire" locked={false} />
           
-          {/* Wallet Connection */}
-          {/* Uncomment when ready */}
           {/* {isWalletConnected ? (
             <div className="flex items-center gap-2 relative">
               <div

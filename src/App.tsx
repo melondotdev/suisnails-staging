@@ -2,6 +2,9 @@ import { useState, useEffect, useRef } from 'react';
 import { useCurrentWallet } from '@mysten/dapp-kit';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Home } from './pages/Home';
+import { Grimoire } from './pages/Grimoire';
+import { Header } from './components/header/Header';
+import { Footer } from './components/footer/Footer';
 import fetchWalletData from './auth/FetchWalletData';
 
 function App() {
@@ -43,9 +46,12 @@ function App() {
   return (
     <div className="min-h-screen bg-black text-gray-200 font-mono">
       <Router>
+        <Header walletData={walletData} isWalletConnected={isWalletConnected} />
         <Routes>
-          <Route path="/" element={<Home walletData={walletData} isWalletConnected={isWalletConnected} />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/grimoire" element={<Grimoire />} />
         </Routes>
+        <Footer />
       </Router>
     </div>
   );
