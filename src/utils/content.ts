@@ -1,6 +1,6 @@
-import VOID_SEQUENCE_001 from '../assets/void_sequence_001.png';
-import VOID_SEQUENCE_002 from '../assets/void_sequence_002.png';
-import VOID_SEQUENCE_003 from '../assets/void_sequence_003.png';
+import VOID_SEQUENCE_001 from '../assets/void_sequence_001.webp';
+import VOID_SEQUENCE_002 from '../assets/void_sequence_002.webp';
+import VOID_SEQUENCE_003 from '../assets/void_sequence_003.webp';
 
 export const FEATURE_IMAGES = [VOID_SEQUENCE_001, VOID_SEQUENCE_002, VOID_SEQUENCE_003];
 

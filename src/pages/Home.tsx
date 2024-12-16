@@ -5,7 +5,7 @@ import { AnimatedButton } from '../components/ui/AnimatedButton';
 import { FeatureCard } from '../components/ui/FeatureCard';
 import { StatCard } from '../components/ui/StatCard';
 import { FEATURES, STATS } from '../utils/content';
-import BgImage from '../assets/banner.png';
+import BgImage from '../assets/background.webp';
 import Logo from '../assets/logo-removebg.png'
 
 interface WalletData {
