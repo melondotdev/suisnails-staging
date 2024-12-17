@@ -5,11 +5,13 @@ interface AnimatedButtonProps {
   children: React.ReactNode;
   primary?: boolean;
   locked?: boolean;
+  onClick?: () => void;
 }
 
-export function AnimatedButton({ children, primary = false, locked = false }: AnimatedButtonProps) {
+export function AnimatedButton({ children, primary = false, locked = false, onClick }: AnimatedButtonProps) {
   return (
     <button
+      onClick={onClick}
       className={`
         group px-8 py-3 rounded-ltg flex items-center transition-all duration-500
         tracking-wider disabled:cursor-not-allowed
