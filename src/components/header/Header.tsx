@@ -50,7 +50,7 @@ export const Header: React.FC<HeaderProps> = ({ walletData, isWalletConnected, c
             menuOpen ? 'flex flex-col items-start px-4 py-4 border-t border-zinc-900' : 'hidden md:flex'
           }`}
         >
-          <NavButton label="ABYSS" to="/abyss" onClick={() => setMenuOpen(false)} locked={true} />
+          <NavButton label="ABYSS" to="/abyss" onClick={() => setMenuOpen(false)} locked={false} />
           <NavButton label="VOID" onClick={() => {}} locked={true} />
           <NavButton label="SUMMON" onClick={() => {}} locked={true} />
           <NavButton label="GRIMOIRE" to="/grimoire" onClick={() => setMenuOpen(false)} locked={false} />
@@ -60,7 +60,7 @@ export const Header: React.FC<HeaderProps> = ({ walletData, isWalletConnected, c
               {isWalletConnected ? (
                 <div className="flex items-center gap-2 relative">
                   <div
-                    className="flex items-center gap-2 hover:text-zinc-100 cursor-pointer transition"
+                    className="flex items-center gap-2 hover:text-zinc-100 text-sm cursor-pointer transition"
                     onClick={() => setDisconnectionRequest(!disconnectionRequest)}
                   >
                     <p>{(parseInt(walletData?.Balance?.toString() || '0') / 1000000000).toFixed(2)}</p>
