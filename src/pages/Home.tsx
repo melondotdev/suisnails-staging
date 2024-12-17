@@ -2,13 +2,15 @@ import React from 'react';
 import { AnimatedButton } from '../components/ui/AnimatedButton';
 import { FeatureCard } from '../components/ui/FeatureCard';
 import { StatCard } from '../components/ui/StatCard';
+import { Header } from '../components/header/Header';
 import { FEATURES, STATS } from '../utils/content';
-import BgImage from '../../public/assets/background.webp';
-import Logo from '../../public/assets/logo-removebg.png'
+import BgImage from '/assets/background.webp';
+import Logo from '/assets/logo-removebg.png'
 
 export const Home: React.FC = () => {
   return (
     <div className="min-h-screen bg-black text-gray-200">
+      <Header />
       <div className="relative h-screen flex items-center justify-center overflow-hidden">
         {/* Background image */}
         <div 

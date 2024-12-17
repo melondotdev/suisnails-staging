@@ -10,11 +10,12 @@ interface WalletData {
 }
 
 interface HeaderProps {
-  walletData: WalletData;
-  isWalletConnected: boolean;
+  walletData?: WalletData;
+  isWalletConnected?: boolean;
+  connectOption?: boolean;
 }
 
-export const Header: React.FC<HeaderProps> = ({ walletData, isWalletConnected }) => {
+export const Header: React.FC<HeaderProps> = ({ walletData, isWalletConnected, connectOption = false }) => {
   const [disconnectionRequest, setDisconnectionRequest] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false); // State to toggle mobile menu
   
@@ -49,30 +50,35 @@ export const Header: React.FC<HeaderProps> = ({ walletData, isWalletConnected })
             menuOpen ? 'flex flex-col items-start px-4 py-4 border-t border-zinc-900' : 'hidden md:flex'
           }`}
         >
-          <NavButton label="MINT" onClick={() => {}} locked={true} />
-          <NavButton label="STAKE" onClick={() => {}} locked={true} />
+          <NavButton label="ABYSS" to="/abyss" onClick={() => setMenuOpen(false)} locked={true} />
+          <NavButton label="VOID" onClick={() => {}} locked={true} />
+          <NavButton label="SUMMON" onClick={() => {}} locked={true} />
           <NavButton label="GRIMOIRE" to="/grimoire" onClick={() => setMenuOpen(false)} locked={false} />
           
-          {/* {isWalletConnected ? (
-            <div className="flex items-center gap-2 relative">
-              <div
-                className="flex items-center gap-2 hover:text-zinc-100 cursor-pointer transition"
-                onClick={() => setDisconnectionRequest(!disconnectionRequest)}
-              >
-                <p>{(parseInt(walletData?.Balance?.toString() || '0') / 1000000000).toFixed(2)}</p>
-                <p>SUI</p>
-              </div>
-              <ConnectWallet
-                disconnectionRequest={disconnectionRequest}
-                setDisconnectionRequest={setDisconnectionRequest}
-              />
-            </div>
-          ) : (
-            <ConnectWallet
-              disconnectionRequest={disconnectionRequest}
-              setDisconnectionRequest={setDisconnectionRequest}
-            />
-          )} */}
+          {connectOption && (
+            <>
+              {isWalletConnected ? (
+                <div className="flex items-center gap-2 relative">
+                  <div
+                    className="flex items-center gap-2 hover:text-zinc-100 cursor-pointer transition"
+                    onClick={() => setDisconnectionRequest(!disconnectionRequest)}
+                  >
+                    <p>{(parseInt(walletData?.Balance?.toString() || '0') / 1000000000).toFixed(2)}</p>
+                    <p>SUI</p>
+                  </div>
+                  <ConnectWallet
+                    disconnectionRequest={disconnectionRequest}
+                    setDisconnectionRequest={setDisconnectionRequest}
+                  />
+                </div>
+              ) : (
+                <ConnectWallet
+                  disconnectionRequest={disconnectionRequest}
+                  setDisconnectionRequest={setDisconnectionRequest}
+                />
+              )}
+            </>
+          )}
         </nav>
       </div>
     </header>

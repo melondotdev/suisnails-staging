@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { GRIMOIRE_CONTENT } from '../utils/grimoire_content';
-import BgImage from '../../public/assets/background.webp';
+import BgImage from '/assets/background.webp';
+import { Header } from '../components/header/Header';
 import { AnimatedButton } from '../components/ui/AnimatedButton';
 import { StatCard } from '../components/ui/StatCard';
 
@@ -10,6 +11,7 @@ export const Grimoire: React.FC = () => {
   
   return (
     <div className="min-h-screen bg-black text-gray-200 pt-24 relative overflow-hidden font-serif">
+      <Header />
       {/* Background */}
       <div
         className="absolute inset-0 bg-cover bg-center opacity-20 grayscale hover:grayscale-0 transition-all duration-700"
@@ -63,37 +65,56 @@ const LoreModal: React.FC<ModalProps> = ({ onClose }) => {
   const activeContent = GRIMOIRE_CONTENT.loreSections.find(section => section.id === activeTab);
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex justify-center items-center p-4">
-      <div className="relative w-full max-w-5xl h-[80vh] bg-gradient-to-b from-black via-gray-900 to-black border border-gray-700 rounded-lg overflow-hidden flex">
-        {/* Sidebar Tabs */}
-        <div className="w-1/4 border-r border-gray-700 bg-black/60 overflow-y-auto">
-          <div className="p-4 font-semibold uppercase tracking-wider text-gray-400 text-sm border-b border-gray-700">
+    <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex justify-center items-center p-4" onClick={onClose}>
+      <div className="relative w-full max-w-5xl h-[80vh] bg-gradient-to-b from-black via-gray-900 to-black border border-gray-700 rounded-lg overflow-hidden flex flex-col md:flex-row">
+        {/* Tabs for Mobile (Top) & Desktop (Side) */}
+        <div className="flex-shrink-0 border-b md:border-b-0 md:border-r border-gray-700 bg-black/60">
+          {/* Heading */}
+          <div className="p-4 font-semibold uppercase tracking-wider text-gray-400 text-sm border-b border-gray-700 md:border-b-0 md:border-r-0 md:block hidden">
             Veil of Lore
           </div>
-          <div className="overflow-y-auto h-full">
-            {GRIMOIRE_CONTENT.loreSections.map(section => (
-              <button
-                key={section.id}
-                onClick={() => setActiveTab(section.id)}
-                className={`block w-full text-left px-4 py-3 border-b border-gray-800 hover:bg-black/50 transition-colors 
-                ${activeTab === section.id ? 'bg-black/50 text-gray-200' : 'text-gray-400'}`}
-              >
-                <div className="flex items-center space-x-2">
-                  {section.symbolSrc && <img src={section.symbolSrc} alt="" className="w-6 h-6" />}
-                  <span>{section.title}</span>
-                </div>
-              </button>
-            ))}
+          {/* On mobile, show tabs horizontally (top); on desktop, vertically (side) */}
+          <div className="md:h-full md:block md:overflow-y-auto scrollbar-dark">
+            {/* MOBILE VIEW TABS (HORIZONTAL) */}
+            <div className="flex md:hidden overflow-x-auto space-x-4 p-4 border-b border-gray-700 scrollbar-dark">
+              {GRIMOIRE_CONTENT.loreSections.map(section => (
+                <button
+                  key={section.id}
+                  onClick={() => setActiveTab(section.id)}
+                  className={`flex-shrink-0 whitespace-nowrap px-4 py-2 rounded hover:bg-black/50 transition-colors 
+                  ${activeTab === section.id ? 'bg-black/50 text-gray-200' : 'text-gray-400'}`}
+                >
+                  {section.title}
+                </button>
+              ))}
+            </div>
+
+            {/* DESKTOP VIEW TABS (VERTICAL) */}
+            <div className="hidden md:block">
+              {GRIMOIRE_CONTENT.loreSections.map(section => (
+                <button
+                  key={section.id}
+                  onClick={() => setActiveTab(section.id)}
+                  className={`block w-full text-left px-4 py-3 border-b border-gray-800 hover:bg-black/50 transition-colors 
+                  ${activeTab === section.id ? 'bg-black/50 text-gray-200' : 'text-gray-400'}`}
+                >
+                  <div className="flex items-center space-x-2">
+                    {section.symbolSrc && <img src={section.symbolSrc} alt="" className="w-6 h-6" />}
+                    <span>{section.title}</span>
+                  </div>
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 
         {/* Content Area */}
-        <div className="w-3/4 p-6 relative">
+        <div className="flex-1 p-6 relative overflow-y-auto scrollbar-dark">
           <button className="absolute top-4 right-4 text-gray-400 hover:text-gray-200" onClick={onClose}>
             ✕
           </button>
           {activeContent && (
-            <div className="overflow-y-auto h-full pr-4">
+            <div className="pr-4">
               {activeContent.imageSrc && (
                 <div className="mb-4">
                   <img src={activeContent.imageSrc} alt="" className="w-full h-48 object-cover rounded shadow-md" />
@@ -113,41 +134,60 @@ const LoreModal: React.FC<ModalProps> = ({ onClose }) => {
 
 const TokenomicsModal: React.FC<ModalProps> = ({ onClose }) => {
   const [activeTab, setActiveTab] = useState(GRIMOIRE_CONTENT.tokenomicsSections[0].id);
-
+  
   const activeContent = GRIMOIRE_CONTENT.tokenomicsSections.find(section => section.id === activeTab);
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex justify-center items-center p-4">
-      <div className="relative w-full max-w-5xl h-[80vh] bg-gradient-to-b from-black via-gray-900 to-black border border-gray-700 rounded-lg overflow-hidden flex">
-        {/* Sidebar Tabs */}
-        <div className="w-1/4 border-r border-gray-700 bg-black/60">
-          <div className="p-4 font-semibold uppercase tracking-wider text-gray-400 text-sm border-b border-gray-700">
+    <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex justify-center items-center p-4" onClick={onClose}>
+      <div className="relative w-full max-w-5xl h-[80vh] bg-gradient-to-b from-black via-gray-900 to-black border border-gray-700 rounded-lg overflow-hidden flex flex-col md:flex-row">
+        {/* Tabs for Mobile (Top) & Desktop (Side) */}
+        <div className="flex-shrink-0 border-b md:border-b-0 md:border-r border-gray-700 bg-black/60">
+          {/* Heading */}
+          <div className="p-4 font-semibold uppercase tracking-wider text-gray-400 text-sm border-b border-gray-700 md:border-b-0 md:border-r-0 md:block hidden">
             Ichor of Tokenomics
           </div>
-          <div className="overflow-y-auto h-full">
-            {GRIMOIRE_CONTENT.tokenomicsSections.map(section => (
-              <button
-                key={section.id}
-                onClick={() => setActiveTab(section.id)}
-                className={`block w-full text-left px-4 py-3 border-b border-gray-800 hover:bg-black/50 transition-colors 
-                ${activeTab === section.id ? 'bg-black/50 text-gray-200' : 'text-gray-400'}`}
-              >
-                <div className="flex items-center space-x-2">
-                  {section.symbolSrc && <img src={section.symbolSrc} alt="" className="w-6 h-6" />}
-                  <span>{section.title}</span>
-                </div>
-              </button>
-            ))}
+          {/* On mobile, show tabs horizontally (top); on desktop, vertically (side) */}
+          <div className="md:h-full md:block md:overflow-y-auto scrollbar-dark">
+            {/* MOBILE VIEW TABS (HORIZONTAL) */}
+            <div className="flex md:hidden overflow-x-auto space-x-4 p-4 border-b border-gray-700 scrollbar-dark">
+              {GRIMOIRE_CONTENT.tokenomicsSections.map(section => (
+                <button
+                  key={section.id}
+                  onClick={() => setActiveTab(section.id)}
+                  className={`flex-shrink-0 whitespace-nowrap px-4 py-2 rounded hover:bg-black/50 transition-colors 
+                  ${activeTab === section.id ? 'bg-black/50 text-gray-200' : 'text-gray-400'}`}
+                >
+                  {section.title}
+                </button>
+              ))}
+            </div>
+
+            {/* DESKTOP VIEW TABS (VERTICAL) */}
+            <div className="hidden md:block">
+              {GRIMOIRE_CONTENT.tokenomicsSections.map(section => (
+                <button
+                  key={section.id}
+                  onClick={() => setActiveTab(section.id)}
+                  className={`block w-full text-left px-4 py-3 border-b border-gray-800 hover:bg-black/50 transition-colors 
+                  ${activeTab === section.id ? 'bg-black/50 text-gray-200' : 'text-gray-400'}`}
+                >
+                  <div className="flex items-center space-x-2">
+                    {section.symbolSrc && <img src={section.symbolSrc} alt="" className="w-6 h-6" />}
+                    <span>{section.title}</span>
+                  </div>
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 
         {/* Content Area */}
-        <div className="w-3/4 p-6 relative">
+        <div className="flex-1 p-6 relative overflow-y-auto">
           <button className="absolute top-4 right-4 text-gray-400 hover:text-gray-200" onClick={onClose}>
             ✕
           </button>
           {activeContent && (
-            <div className="overflow-y-auto h-full pr-4">
+            <div className="pr-4">
               {activeContent.imageSrc && (
                 <div className="mb-4">
                   <img src={activeContent.imageSrc} alt="" className="w-full h-48 object-cover rounded shadow-md" />

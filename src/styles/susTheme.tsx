@@ -6,9 +6,9 @@ export const susTheme: ThemeVars = {
 		modalOverlay: 'blur(0)',
 	},
 	backgroundColors: {
-		primaryButton: '#000000',
-    primaryButtonHover: '#000000',
-		outlineButtonHover: '#000000',
+		primaryButton: '#0000000',
+    primaryButtonHover: '#0000000',
+		outlineButtonHover: '#0000000',
     modalOverlay: 'rgba(24 36 53 / 20%)',
     modalPrimary: '#FFFFFF',
     modalSecondary: '#F7F8F8',

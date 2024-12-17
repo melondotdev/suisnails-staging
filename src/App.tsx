@@ -3,7 +3,7 @@ import { useCurrentWallet } from '@mysten/dapp-kit';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Home } from './pages/Home';
 import { Grimoire } from './pages/Grimoire';
-import { Header } from './components/header/Header';
+import { Abyss } from './pages/abyss/Abyss';
 import { Footer } from './components/footer/Footer';
 import fetchWalletData from './auth/FetchWalletData';
 
@@ -46,10 +46,10 @@ function App() {
   return (
     <div className="min-h-screen bg-black text-gray-200 font-mono">
       <Router>
-        <Header walletData={walletData} isWalletConnected={isWalletConnected} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/grimoire" element={<Grimoire />} />
+          <Route path="/abyss" element={<Abyss walletData={walletData} isWalletConnected={isWalletConnected} />} />
         </Routes>
         <Footer />
       </Router>
