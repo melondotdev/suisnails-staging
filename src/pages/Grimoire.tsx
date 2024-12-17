@@ -33,10 +33,10 @@ export const Grimoire: React.FC = () => {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <AnimatedButton locked={false} onClick={() => setShowLoreModal(true)}>
-              Veil of Lore
+              Lore
             </AnimatedButton>
             <AnimatedButton locked={false} onClick={() => setShowTokenModal(true)}>
-              Ichor of Tokenomics
+              Tokenomics
             </AnimatedButton>
           </div>
         </div>
@@ -71,7 +71,7 @@ const LoreModal: React.FC<ModalProps> = ({ onClose }) => {
         <div className="flex-shrink-0 border-b md:border-b-0 md:border-r border-gray-700 bg-black/60">
           {/* Heading */}
           <div className="p-4 font-semibold uppercase tracking-wider text-gray-400 text-sm border-b border-gray-700 md:border-b-0 md:border-r-0 md:block hidden">
-            Veil of Lore
+            Lore
           </div>
           {/* On mobile, show tabs horizontally (top); on desktop, vertically (side) */}
           <div className="md:h-full md:block md:overflow-y-auto scrollbar-dark">
@@ -144,7 +144,7 @@ const TokenomicsModal: React.FC<ModalProps> = ({ onClose }) => {
         <div className="flex-shrink-0 border-b md:border-b-0 md:border-r border-gray-700 bg-black/60">
           {/* Heading */}
           <div className="p-4 font-semibold uppercase tracking-wider text-gray-400 text-sm border-b border-gray-700 md:border-b-0 md:border-r-0 md:block hidden">
-            Ichor of Tokenomics
+            Tokenomics
           </div>
           {/* On mobile, show tabs horizontally (top); on desktop, vertically (side) */}
           <div className="md:h-full md:block md:overflow-y-auto scrollbar-dark">

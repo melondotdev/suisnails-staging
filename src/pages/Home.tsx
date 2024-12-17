@@ -31,7 +31,7 @@ export const Home: React.FC = () => {
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <AnimatedButton primary locked={true} >Descend Into Madness</AnimatedButton>
-            <AnimatedButton locked={true}>Forbidden Knowledge</AnimatedButton>
+            <AnimatedButton to="/grimoire" locked={false}>Forbidden Knowledge</AnimatedButton>
           </div>
         </div>
       </div>
