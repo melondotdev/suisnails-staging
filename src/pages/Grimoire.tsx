@@ -65,7 +65,7 @@ const LoreModal: React.FC<ModalProps> = ({ onClose }) => {
   const activeContent = GRIMOIRE_CONTENT.loreSections.find(section => section.id === activeTab);
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex justify-center items-center p-4" onClick={onClose}>
+    <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex justify-center items-center p-4">
       <div className="relative w-full max-w-5xl h-[80vh] bg-gradient-to-b from-black via-gray-900 to-black border border-gray-700 rounded-lg overflow-hidden flex flex-col md:flex-row">
         {/* Tabs for Mobile (Top) & Desktop (Side) */}
         <div className="flex-shrink-0 border-b md:border-b-0 md:border-r border-gray-700 bg-black/60">
@@ -110,7 +110,7 @@ const LoreModal: React.FC<ModalProps> = ({ onClose }) => {
 
         {/* Content Area */}
         <div className="flex-1 p-6 relative overflow-y-auto scrollbar-dark">
-          <button className="absolute top-4 right-4 text-gray-400 hover:text-gray-200" onClick={onClose}>
+          <button className="absolute top-4 right-4 text-gray-400 hover:text-gray-200">
             ✕
           </button>
           {activeContent && (
