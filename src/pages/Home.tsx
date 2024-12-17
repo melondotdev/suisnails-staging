@@ -30,7 +30,7 @@ export const Home: React.FC = () => {
           <p className="text-xl md:text-2xl mb-8 text-gray-400">Reject Humanity. Seek Immorality.</p>
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <AnimatedButton primary locked={true} >Descend Into Madness</AnimatedButton>
+            <AnimatedButton primary to="/abyss" locked={false} >Descend Into Madness</AnimatedButton>
             <AnimatedButton to="/grimoire" locked={false}>Forbidden Knowledge</AnimatedButton>
           </div>
         </div>
