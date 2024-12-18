@@ -19,8 +19,8 @@ Elder powers, known only by twisted murmurs—The Seven Sins—oversee this nigh
 
 The heroes must unite to churn $SUS into a bulwark against the yawning dark, forging alliances in whispers and screams.
     `,
-    imageSrc: "/assets/lore.png",
-    symbolSrc: "/assets/symbol-lore.png"
+    imageSrc: "/assets/background.webp",
+    symbolSrc: "/assets/background.webp"
   },
   {
     id: "heroes",

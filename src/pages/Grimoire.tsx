@@ -32,7 +32,7 @@ export const Grimoire: React.FC = () => {
             {GRIMOIRE_CONTENT.intro}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <AnimatedButton locked={true} onClick={() => setShowLoreModal(true)}>
+            <AnimatedButton locked={false} onClick={() => setShowLoreModal(true)}>
               Lore & Systems
             </AnimatedButton>
             <AnimatedButton locked={true} onClick={() => setShowTokenModal(true)}>
