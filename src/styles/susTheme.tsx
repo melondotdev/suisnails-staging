@@ -6,8 +6,8 @@ export const susTheme: ThemeVars = {
 		modalOverlay: 'blur(0)',
 	},
 	backgroundColors: {
-		primaryButton: '#0000000',
-    primaryButtonHover: '#0000000',
+		primaryButton: '#064e3b',
+    primaryButtonHover: '#097b5d',
 		outlineButtonHover: '#0000000',
     modalOverlay: 'rgba(24 36 53 / 20%)',
     modalPrimary: '#FFFFFF',
@@ -23,7 +23,7 @@ export const susTheme: ThemeVars = {
 		outlineButton: '#E4E4E7',
 	},
 	colors: {
-		primaryButton: '#a1a1aa',
+		primaryButton: '#ffffff',
     outlineButton: '#a1a1aa',
 		iconButton: '#000000',
 		body: '#182435',

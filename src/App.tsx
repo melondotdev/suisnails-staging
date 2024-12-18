@@ -3,9 +3,11 @@ import { useCurrentWallet } from '@mysten/dapp-kit';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Home } from './pages/Home';
 import { Grimoire } from './pages/Grimoire';
-import { Abyss } from './pages/abyss/Abyss';
+import { Abyss } from './pages/Abyss';
 import { Footer } from './components/footer/Footer';
 import fetchWalletData from './auth/FetchWalletData';
+import { Clicker } from './pages/trials/Clicker';
+import { Wordle } from './pages/trials/Wordle';
 
 function App() {
   const [isWalletConnected, setIsWalletConnected] = useState(false);
@@ -50,6 +52,10 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/grimoire" element={<Grimoire />} />
           <Route path="/abyss" element={<Abyss walletData={walletData} isWalletConnected={isWalletConnected} />} />
+          <Route path="/abyss/abyss1" element={<Clicker walletData={walletData} isWalletConnected={isWalletConnected} />} />
+          <Route path="/abyss/abyss2" element={<Wordle walletData={walletData} isWalletConnected={isWalletConnected} />} />
+          <Route path="/abyss/abyss3" element={<Wordle walletData={walletData} isWalletConnected={isWalletConnected} />} />
+          <Route path="/abyss/abyss4" element={<Wordle walletData={walletData} isWalletConnected={isWalletConnected} />} />
         </Routes>
         <Footer />
       </Router>

@@ -1,13 +1,14 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 
 interface FeatureCardProps {
   imageSrc: string;
   title: string;
   description: string;
+  link?: string; // Optional internal link (URL path within the app)
 }
 
-export function FeatureCard({ imageSrc, title, description }: FeatureCardProps) {
-  return (
+export function FeatureCard({ imageSrc, title, description, link }: FeatureCardProps) {
+  const cardContent = (
     <div className="group p-6 rounded-lg border border-gray-800 hover:border-gray-600 transition-all duration-500">
       {/* Image Section */}
       <div className="mb-4 overflow-hidden rounded-lg">
@@ -28,5 +29,14 @@ export function FeatureCard({ imageSrc, title, description }: FeatureCardProps) 
         {description}
       </p>
     </div>
+  );
+
+  // If a link is provided, wrap the card content with a React Router Link.
+  return link ? (
+    <Link to={link} className="block">
+      {cardContent}
+    </Link>
+  ) : (
+    cardContent
   );
 }

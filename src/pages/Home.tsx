@@ -3,7 +3,7 @@ import { AnimatedButton } from '../components/ui/AnimatedButton';
 import { FeatureCard } from '../components/ui/FeatureCard';
 import { StatCard } from '../components/ui/StatCard';
 import { Header } from '../components/header/Header';
-import { FEATURES, STATS } from '../utils/content';
+import { FEATURES, STATS } from '../utils/home_content';
 import BgImage from '/assets/background.webp';
 import Logo from '/assets/logo-removebg.png'
 
