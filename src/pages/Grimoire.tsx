@@ -33,7 +33,7 @@ export const Grimoire: React.FC = () => {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <AnimatedButton locked={false} onClick={() => setShowLoreModal(true)}>
-              Lore & Systems
+              Veil of Lore
             </AnimatedButton>
             <AnimatedButton locked={true} onClick={() => setShowTokenModal(true)}>
               Tokenomics
@@ -46,7 +46,7 @@ export const Grimoire: React.FC = () => {
       {showLoreModal && (
         <LoreModal onClose={() => setShowLoreModal(false)} />
       )}
-
+      
       {/* Tokenomics Modal */}
       {showTokenModal && (
         <TokenomicsModal onClose={() => setShowTokenModal(false)} />
@@ -61,7 +61,7 @@ interface ModalProps {
 
 const LoreModal: React.FC<ModalProps> = ({ onClose }) => {
   const [activeTab, setActiveTab] = useState(GRIMOIRE_CONTENT.loreSections[0].id);
-
+  
   const activeContent = GRIMOIRE_CONTENT.loreSections.find(section => section.id === activeTab);
 
   return (
@@ -74,7 +74,7 @@ const LoreModal: React.FC<ModalProps> = ({ onClose }) => {
         <div className="flex-shrink-0 border-b md:border-b-0 md:border-r border-gray-700 bg-black/60">
           {/* Heading */}
           <div className="p-4 font-semibold uppercase tracking-wider text-gray-400 text-sm border-b border-gray-700 md:border-b-0 md:border-r-0 md:block hidden">
-            Lore & Systems
+            Veil of Lore
           </div>
           {/* MOBILE VIEW TABS (HORIZONTAL) */}
           <div className="md:h-full md:block md:overflow-y-auto scrollbar-dark">
@@ -119,7 +119,7 @@ const LoreModal: React.FC<ModalProps> = ({ onClose }) => {
             <div className="pr-4">
               {activeContent.imageSrc && (
                 <div className="mb-4">
-                  <img src={activeContent.imageSrc} alt="" className="w-full h-48 object-cover rounded shadow-md" />
+                  <img src={activeContent.imageSrc} alt="" className="w-full object-cover rounded shadow-md" />
                 </div>
               )}
               <h2 className="text-2xl font-bold mb-4 uppercase tracking-wide">{activeContent.title}</h2>
@@ -194,7 +194,7 @@ const TokenomicsModal: React.FC<ModalProps> = ({ onClose }) => {
             <div className="pr-4">
               {activeContent.imageSrc && (
                 <div className="mb-4">
-                  <img src={activeContent.imageSrc} alt="" className="w-full h-48 object-cover rounded shadow-md" />
+                  <img src={activeContent.imageSrc} alt="" className="w-full object-cover rounded shadow-md" />
                 </div>
               )}
               <h2 className="text-2xl font-bold mb-4 uppercase tracking-wide">{activeContent.title}</h2>
