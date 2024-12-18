@@ -160,7 +160,7 @@ In these numbers, fate reveals its cryptic patterns.
 export const GRIMOIRE_CONTENT = {
   title: "The Codex: A Whispered Testament",
   subtitle: "In the silent recesses of the cosmic void—where nameless entities brood beneath starless skies.",
-  intro: `Within the unborn corridors of Shelloria’s dusk, cryptic tongues whisper of destinies etched in umbral ink. The Seven Sins have granted heroes an eternal shell, forging a bulwark against death’s jaws. The Abyss festers above, its spawn legion and formless. $SUS, distilled from black intent, courses through these nightmare veins. Let these passages guide you, if you dare.`,
+  intro: `Within the unborn corridors of Shelloria’s dusk, cryptic tongues whisper of destinies etched in umbral ink. The Original Gods have summoned heroes and granted them an eternal shell, forging a bulwark against death’s jaws. The Abyss festers below, its spawn legion and formless. SUS, distilled from black intent, courses through these nightmare veins. Let these passages guide you, if you dare.`,
   loreSections: LORE_SECTIONS,
   tokenomicsSections: TOKENOMICS_SECTIONS
 };

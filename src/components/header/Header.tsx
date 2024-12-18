@@ -53,7 +53,6 @@ export const Header: React.FC<HeaderProps> = ({ walletData, isWalletConnected, c
           <NavButton label="ABYSS" to="/abyss" onClick={() => setMenuOpen(false)} locked={false} />
           <NavButton label="VOID" onClick={() => {}} locked={true} />
           <NavButton label="SUMMON" onClick={() => {}} locked={true} />
-          <NavButton label="GRIMOIRE" to="/grimoire" onClick={() => setMenuOpen(false)} locked={false} />
           
           {connectOption && (
             <>
