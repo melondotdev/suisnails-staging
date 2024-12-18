@@ -8,109 +8,48 @@ export interface Section {
 
 export const LORE_SECTIONS: Section[] = [
   {
-    id: "lore",
-    title: "Lore of the Eternal Shell",
-    content: `
-Elder powers, known only by twisted murmurs—The Seven Sins—oversee this nightmare crucible. Each hero, bound to a blockchain soul, emerges brittle and uncertain at Tier 1. The Abyss now rises like a living cancer, its spawn a chattering chorus of shapeless intent.
+    id: "prophecy",
+    title: "Twisted Prophecy",
+    content: 
+`Seven centuries before the Abyss first stirred beneath Shelloria’s soil, Pope Lucifer VI, eyes alight with ember-flames, whispered his final prophecy beneath stained-glass constellations. He spoke of a future drenched in darkness, of a tide of teeth and blood crawling from the world’s secret belly to devour all hope. 
 
-- The eternal shell grants rebirth, cheating death’s hungry maw.
-- By felling Abyssal husks, the hero draws in $SUS, black ichor of divine amusement.
-- With $SUS, base metals transmute into relics that shine like glistening nightmares.
-
-The heroes must unite to churn $SUS into a bulwark against the yawning dark, forging alliances in whispers and screams.
-    `,
-    imageSrc: "/assets/lore.png",
-    symbolSrc: "/assets/symbol-lore.png"
+Yet in that wretched silence, he promised one last spark. From the ruin and the rot would rise a champion—shell fractured, soul tempered—wielding the powers of [REDACTED]. This hero’s trials would be etched into the marrow of the ages: to surpass the very limit of the soul, to unearth the blasphemous secret of the Abyss, and to wrest free from the iron grasp of fate itself.`
+    ,
+    imageSrc: "/assets/lore/prophecy.webp",
+    symbolSrc: "/assets/lore/prophecy.webp"
   },
   {
-    id: "heroes",
-    title: "A Soul Anchored to a Wallet & The Nature of Heroes",
-    content: `
-Accounts anchor one’s presence—a soul encoded in cryptic ledgers. Each newborn hero crawls forth:
+    id: "invasion",
+    title: "Invasion of Shelloria",
+    content: 
+`As if prying open a malignant wound in the earth, the Abyss shuddered upward, vomiting forth horrors shaped from nightmares’ deepest pits. Their shrieks echoed across dying fields, and within mere hours, cities fell to gnashing maws and quivering tendrils. Over a million souls—once lovers, dreamers, and children—were devoured or corrupted in a single dawn.
 
-- Tier 1: A fragile spark in an endless black.
-- With $5 USD or equivalent $SUS, ascend to Tier 2, where might and mystery multiply.
-
-Attributes of each hero:
-- A weapon of chthonic metal.
-- A shell spun from cosmic sinew.
-- Three accessories: ring, necklace, boots—fetters of subtle influence.
-- 10 unspent stat points, a seed awaiting corruption.
-- Levels (1 to 120) mark ascension into transcendent madness.
-- Tiers (1 to 5) yield greater EXP and $POINTs, dark bribes from the Abyss itself.
-    `,
-    imageSrc: "/assets/heroes.png",
-    symbolSrc: "/assets/symbol-heroes.png"
+Muted legends hinted that nameless powers, older than gods and madder than demons, guided this living darkness. Frantic whispers and ragged pleas shattered the hush of once-holy halls, yet no plea was answered. In desperation, some tried to appease their new masters, but their efforts [REDACTED] left only insanity and a chorus of screams. Alliances formed in secret corners, trembling as they faced the hungry void—its maw of silence wide open, its soul-swallowing power unchecked.`
+    ,
+    imageSrc: "/assets/background.webp",
+    symbolSrc: "/assets/background.webp"
   },
   {
-    id: "items",
-    title: "Items: A Catalogue of Blasphemies",
-    content: `
-All items are keys to cryptic doors. Some locks demand minimum stats, arcane thresholds whispered by dormant runes:
+    id: "defense",
+    title: "Defense of Shelloria",
+    content: 
+`In that dire age, the alliance forged its last, trembling line in the dust—a fragile cordon known as the Three Point Perimeter. Three fortified positions stood between the survivors and the howling dusk beyond. Within these bastions, weary defenders clung to the ragged edges of survival, blades notched and shields soaked in ichor. 
 
-- Weapons: Basic strikes mutate under esoteric triggers.
-- Shells: Forbidden moves detonate when blood runs thin.
-- Accessories: Quiet conductors of fate, twisting destiny’s numbers.
+It was the best they could achieve: to halt, not to reclaim. Beyond the perimeter’s meager lantern glow, twisted abominations prowled unending nights, blotting out what remained of the stars. Hope was a rumor, faith a withered husk. The Gods, their altars long silent, offered no comfort. The defenders knew only this thin line and the silent hum of despair that pressed in like suffocating smoke.`
+    ,
+    imageSrc: "/assets/lore/invasion.webp",
+    symbolSrc: "/assets/lore/invasion.webp"
+  },
+  {
+    id: "summons",
+    title: "Earthling Summons",
+    content: 
+`When all seemed lost, the heart of Shelloria pulsed with impossible light. The Central Temple flared like a molten dawn, tearing the clotted clouds apart. Through shimmering radiance, six figures descended its marble steps. They bore forms both strange and regal, each adorned with a pristine, gleaming shell on their backs—a promise of otherworldly favor.
 
-Only by meeting eldritch requirements do these dormant horrors bloom.
-    `,
-    imageSrc: "/assets/items.png",
-    symbolSrc: "/assets/symbol-items.png"
-  },
-  {
-    id: "depthlight",
-    title: "The Depthlight Portal",
-    content: `
-A rent in comprehension’s fabric. Through it, heroes drift into frontier zones where an endless ballet of violence unfolds in eerie silence. Each victory yields EXP and $SUS—each foe slain a stepping stone into deeper madness.
-    `,
-    imageSrc: "/assets/depthlight.png",
-    symbolSrc: "/assets/symbol-depthlight.png"
-  },
-  {
-    id: "temple",
-    title: "The Crystal Temple",
-    content: `
-Within prism-lit halls, $SUS is devoured to reforge iron into shrieking relics. Here, matter and meaning twist together, birthing impossible artifacts as silent custodians watch with hollow eyes.
-    `,
-    imageSrc: "/assets/temple.png",
-    symbolSrc: "/assets/symbol-temple.png"
-  },
-  {
-    id: "shellmart",
-    title: "The Shellmart",
-    content: `
-A dim emporium where rare, epic, and legendary items shimmer and fade in cyclical rotations. Spend $SUS or traded spoils to grasp ephemeral wonders. Reselling yields half-value, as the Mart laughs in silent mockery.
-    `,
-    imageSrc: "/assets/shellmart.png",
-    symbolSrc: "/assets/symbol-shellmart.png"
-  },
-  {
-    id: "trading",
-    title: "The Shelloria Trading Company",
-    content: `
-Hooded figures weave liquidity pools of void-thread. Stake tokens, reap $SUS and SUI. This is commerce on a razor’s edge, trust and terror intermingled.
-    `,
-    imageSrc: "/assets/trading.png",
-    symbolSrc: "/assets/symbol-trading.png"
-  },
-  {
-    id: "autobattle",
-    title: "The Abyssal Dance of Autobattle",
-    content: `
-In turn-based crucibles, hero and foe trade violent verses. Specials emerge under cryptic conditions. Death triggers revival via eternal shell. Foes yield EXP and $SUS, heroes learn from each humiliating fall.
-
-Base Stats:
-- STR: Iron jaws crushing bone.
-- END: Bulwark against shrieking oblivion.
-- AGI: Quicksilver blood beneath starless skies.
-- STA: Unending breath in choking gloom.
-- MGK: Channels to cosmic abysses.
-- LUK: Fate’s coin in silent spin.
-
-From these seeds bloom derived stats: HP, MP, regenerations, speed, defenses—fungi thriving in corpse-lit soil.
-    `,
-    imageSrc: "/assets/autobattle.png",
-    symbolSrc: "/assets/symbol-autobattle.png"
+The survivors gasped as these "Earthlings" revealed impossible blessings: flickers of wrathful flame dancing at their fingertips, swiftness and cunning sharper than mortal ken. With measured steps, the six strode into the waiting maw of the Abyss, each promise a defiance against the looming end. They moved with grim purpose, forging a fragile, trembling hope that perhaps the silence of the Gods had not been ignorance, but careful, measured intent.`
+    ,
+    imageSrc: "/assets/lore/summons.webp",
+    symbolSrc: "/assets/lore/summons.webp"
   }
 ];
 
@@ -160,7 +99,7 @@ In these numbers, fate reveals its cryptic patterns.
 export const GRIMOIRE_CONTENT = {
   title: "The Codex: A Whispered Testament",
   subtitle: "In the silent recesses of the cosmic void—where nameless entities brood beneath starless skies.",
-  intro: `Within the unborn corridors of Shelloria’s dusk, cryptic tongues whisper of destinies etched in umbral ink. The Original Gods have summoned heroes and granted them an eternal shell, forging a bulwark against death’s jaws. The Abyss festers below, its spawn legion and formless. SUS, distilled from black intent, courses through these nightmare veins. Let these passages guide you, if you dare.`,
+  intro: `Within the unborn corridors of Shelloria’s dusk, cryptic tongues whisper of destinies etched in umbral ink. The Gods have summoned heroes and granted them an eternal shell, forging a bulwark against death’s jaws. The Abyss festers below, its spawn legion and formless. SUS, distilled from black intent, courses through these nightmare veins. Let these passages guide you, if you dare.`,
   loreSections: LORE_SECTIONS,
   tokenomicsSections: TOKENOMICS_SECTIONS
 };
