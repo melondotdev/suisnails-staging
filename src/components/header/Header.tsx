@@ -43,16 +43,16 @@ export const Header: React.FC<HeaderProps> = ({ walletData, isWalletConnected, c
             />
           )}
         </div>
-
+        
         {/* Navigation Links */}
         <nav
           className={`absolute md:relative top-full left-0 w-full md:w-auto bg-zinc-950 md:bg-transparent md:flex md:items-center gap-6 transition-all duration-300 ${
             menuOpen ? 'flex flex-col items-start px-4 py-4 border-t border-zinc-900' : 'hidden md:flex'
           }`}
         >
-          <NavButton label="ABYSS" to="/abyss" onClick={() => setMenuOpen(false)} locked={false} />
-          <NavButton label="VOID" onClick={() => {}} locked={true} />
-          <NavButton label="SUMMON" onClick={() => {}} locked={true} />
+          <NavButton label="GAME" to="/game" onClick={() => setMenuOpen(false)} locked={false} />
+          <NavButton label="NOVEL" to="/novel" onClick={() => setMenuOpen(false)} locked={false} />
+          <NavButton label="PUBLISH" onClick={() => {}} locked={true} />
           
           {connectOption && (
             <>

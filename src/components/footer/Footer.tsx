@@ -8,7 +8,7 @@ export const Footer: React.FC = () => {
     <footer className="mt-16 border-t border-zinc-900 py-8">
       <div className="max-w-4xl mx-auto px-4 md:px-8">
         <div className="flex items-center justify-center gap-8">
-          <NavButton label="GRIMOIRE" to="/grimoire" locked={false} />
+          <NavButton label="CODEX" to="/codex" locked={false} />
           <SocialLink
             icon={RiIcons.RiTwitterXLine}
             label="Twitter"

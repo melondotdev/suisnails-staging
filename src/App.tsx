@@ -8,6 +8,7 @@ import { Footer } from './components/footer/Footer';
 import fetchWalletData from './auth/FetchWalletData';
 import { Clicker } from './pages/trials/Clicker';
 import { Wordle } from './pages/trials/Wordle';
+import { Novel } from './pages/Novel';
 
 function App() {
   const [isWalletConnected, setIsWalletConnected] = useState(false);
@@ -51,11 +52,12 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/grimoire" element={<Grimoire />} />
-          <Route path="/abyss" element={<Abyss walletData={walletData} isWalletConnected={isWalletConnected} />} />
-          <Route path="/abyss/abyss1" element={<Clicker walletData={walletData} isWalletConnected={isWalletConnected} />} />
-          <Route path="/abyss/abyss2" element={<Wordle walletData={walletData} isWalletConnected={isWalletConnected} />} />
-          <Route path="/abyss/abyss3" element={<Wordle walletData={walletData} isWalletConnected={isWalletConnected} />} />
-          <Route path="/abyss/abyss4" element={<Wordle walletData={walletData} isWalletConnected={isWalletConnected} />} />
+          <Route path="/game" element={<Abyss walletData={walletData} isWalletConnected={isWalletConnected} />} />
+          <Route path="/novel" element={<Novel walletData={walletData} isWalletConnected={isWalletConnected} />} />
+          <Route path="/game/abyss1" element={<Clicker walletData={walletData} isWalletConnected={isWalletConnected} />} />
+          <Route path="/game/abyss2" element={<Wordle walletData={walletData} isWalletConnected={isWalletConnected} />} />
+          <Route path="/game/abyss3" element={<Wordle walletData={walletData} isWalletConnected={isWalletConnected} />} />
+          <Route path="/game/abyss4" element={<Wordle walletData={walletData} isWalletConnected={isWalletConnected} />} />
         </Routes>
         <Footer />
       </Router>
