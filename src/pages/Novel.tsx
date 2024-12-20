@@ -68,7 +68,7 @@ export const Novel: React.FC<NovelProps> = ({ walletData, isWalletConnected }) =
         {/* Left Panel: Fixed TOC */}
         <aside
           className={`
-            fixed top-0 left-0 h-[600px] bg-zinc-900 transition-all duration-300 
+            fixed top-0 left-0 h-[600px] transition-all duration-300 
             ${isMinimized ? 'w-12' : 'w-64'} flex flex-col overflow-y-auto mt-24 scrollbar-dark
           `}
         >
