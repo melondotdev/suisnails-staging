@@ -144,7 +144,7 @@ Was he going to…
 
 
 
-[break]
+- break -
 
 
 
@@ -165,9 +165,7 @@ In the final vision, the glow reformed into something towering and incomprehensi
 Then it was gone, and he was drowning in a single emotion that overpowered all others: regret.
 
 
-
-[break]
-
+- break -
 
 
 Daniel jolted awake, his body drenched in sweat. His heart pounded against his ribs, the rhythmic beeping of the monitor grounding him in the present. The hospital room was unnervingly quiet, its fluorescent lights casting a harsh, sterile glow. His head throbbed as he struggled to orient himself, the faint scent of antiseptic filling his nostrils.
