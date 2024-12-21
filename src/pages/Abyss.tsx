@@ -76,7 +76,7 @@ export const Abyss: React.FC<AbyssProps> = ({ walletData, isWalletConnected }) =
   const progressFraction = nextMin ? (currentPoints - currentMin) / (nextMin - currentMin) : 1;
   
   const shortenedWallet = walletData?.Address
-    ? `${walletData.Address.substring(0, 6)}...${walletData.Address.slice(-4)}`
+    ? `${walletData.Address.substring(0, 4)}...${walletData.Address.slice(-4)}`
     : 'No Wallet';
     
   return (
@@ -91,9 +91,14 @@ export const Abyss: React.FC<AbyssProps> = ({ walletData, isWalletConnected }) =
             <div className="flex flex-col items-center py-3 px-4 rounded-lg border border-zinc-800">
               <div className='flex items-center gap-4'>
                 <img src={leagueInfo.badgeSrc} alt={leagueInfo.currentLeagueName} className="w-10 h-10" />
-                <span className="text-sm text-gray-400">{shortenedWallet}</span>
-                <span className="text-sm text-gray-400">rank_{userRank}</span>
-                <span className="text-sm text-gray-400">points_{userPoints}</span>
+                <div className='flex flex-col items-start'>
+                  <span className="text-sm text-gray-400">{shortenedWallet}</span>
+                  <span className="text-sm text-gray-400">{leagueInfo.currentLeagueName.toLowerCase()}_league</span>
+                </div>
+                <div className='flex flex-col items-start'>
+                  <span className="text-sm text-gray-400">rank_{userRank}</span>
+                  <span className="text-sm text-gray-400">points_{userPoints}</span>
+                </div>
                 {/* Leaderboard Button */}
                 <button
                   onClick={() => setShowLeaderboardModal(true)}
