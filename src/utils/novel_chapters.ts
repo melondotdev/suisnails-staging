@@ -18,7 +18,7 @@ export const CHAPTERS: Chapter[] = [
   {
     title: 'Chapter 1',
     textLoader: () => import('../lib/chapters/chapter1.txt?raw'),
-    published: true,
+    published: false,
   },
   {
     title: 'Chapter 2',
@@ -62,16 +62,6 @@ export const CHAPTERS: Chapter[] = [
   },
   {
     title: 'Chapter 10',
-    textLoader: () => import('../lib/chapters/chapter2.txt?raw'),
-    published: false,
-  },
-  {
-    title: 'Chapter 11',
-    textLoader: () => import('../lib/chapters/chapter2.txt?raw'),
-    published: false,
-  },
-  {
-    title: 'Chapter 12',
     textLoader: () => import('../lib/chapters/chapter2.txt?raw'),
     published: false,
   },

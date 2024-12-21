@@ -50,9 +50,9 @@ export const Header: React.FC<HeaderProps> = ({ walletData, isWalletConnected, c
             menuOpen ? 'flex flex-col items-start px-4 py-4 border-t border-zinc-900' : 'hidden md:flex'
           }`}
         >
-          <NavButton label="GAME" to="/game" onClick={() => setMenuOpen(false)} locked={false} />
           <NavButton label="NOVEL" to="/novel" onClick={() => setMenuOpen(false)} locked={false} />
-          <NavButton label="PUBLISH" onClick={() => {}} locked={true} />
+          <NavButton label="GAME" to="/game" onClick={() => setMenuOpen(false)} locked={false} />
+          <NavButton label="MINT" onClick={() => {}} locked={true} />
           
           {connectOption && (
             <>
