@@ -53,7 +53,7 @@ export const Abyss: React.FC<AbyssProps> = ({ walletData, isWalletConnected }) =
       console.error('Error fetching leaderboard:', error);
     }
   };
-
+  
   useEffect(() => {
     if (isWalletConnected && walletData?.Address) {
       fetchLeaderboard();
