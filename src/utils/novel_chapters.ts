@@ -16,62 +16,62 @@ export const CHAPTERS: Chapter[] = [
     published: true, // Accessible by everyone
   },
   {
-    title: 'Chapter 1: Awakening',
+    title: 'Chapter 1',
     textLoader: () => import('../lib/chapters/chapter1.txt?raw'),
     published: true,
   },
   {
-    title: 'Chapter 2: The Village at the Edge of the Woods',
+    title: 'Chapter 2',
     textLoader: () => import('../lib/chapters/chapter2.txt?raw'),
     published: false, // Unpublished, restrict access
   },
   {
-    title: 'Chapter 3: The Village at the Edge of the Woods',
+    title: 'Chapter 3',
     textLoader: () => import('../lib/chapters/chapter2.txt?raw'),
     published: false,
   },
   {
-    title: 'Chapter 4: The Village at the Edge of the Woods',
+    title: 'Chapter 4',
     textLoader: () => import('../lib/chapters/chapter2.txt?raw'),
     published: false,
   },
   {
-    title: 'Chapter 5: The Village at the Edge of the Woods',
+    title: 'Chapter 5',
     textLoader: () => import('../lib/chapters/chapter2.txt?raw'),
     published: false,
   },
   {
-    title: 'Chapter 6: The Village at the Edge of the Woods',
+    title: 'Chapter 6',
     textLoader: () => import('../lib/chapters/chapter2.txt?raw'),
     published: false,
   },
   {
-    title: 'Chapter 7: The Village at the Edge of the Woods',
+    title: 'Chapter 7',
     textLoader: () => import('../lib/chapters/chapter2.txt?raw'),
     published: false,
   },
   {
-    title: 'Chapter 8: The Village at the Edge of the Woods',
+    title: 'Chapter 8',
     textLoader: () => import('../lib/chapters/chapter2.txt?raw'),
     published: false,
   },
   {
-    title: 'Chapter 9: The Village at the Edge of the Woods',
+    title: 'Chapter 9',
     textLoader: () => import('../lib/chapters/chapter2.txt?raw'),
     published: false,
   },
   {
-    title: 'Chapter 10: The Village at the Edge of the Woods',
+    title: 'Chapter 10',
     textLoader: () => import('../lib/chapters/chapter2.txt?raw'),
     published: false,
   },
   {
-    title: 'Chapter 11: The Village at the Edge of the Woods',
+    title: 'Chapter 11',
     textLoader: () => import('../lib/chapters/chapter2.txt?raw'),
     published: false,
   },
   {
-    title: 'Chapter 12: The Village at the Edge of the Woods',
+    title: 'Chapter 12',
     textLoader: () => import('../lib/chapters/chapter2.txt?raw'),
     published: false,
   },
