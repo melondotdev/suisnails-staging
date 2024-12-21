@@ -7,7 +7,8 @@ import {
   bookSummary,
   bookTitle,
 } from '../utils/novel_chapters';
-import { getChapterGroups } from './novel/groupChapters';
+import { getChapterGroups } from '../components/novel/groupChapters';
+import { useChapterPointsHandler } from '../components/novel/useChapterPointsHandler';
 
 interface WalletData {
   Address?: string;
@@ -24,9 +25,17 @@ export const Novel: React.FC<NovelProps> = ({ walletData, isWalletConnected }) =
   const [expandedGroups, setExpandedGroups] = useState<Set<number>>(new Set());
   const [isMinimized, setIsMinimized] = useState<boolean>(false);
   const [chapterText, setChapterText] = useState<string>(''); // Holds the dynamically loaded text
-  
+  const [claimedChapters, setClaimedChapters] = useState<Set<number>>(new Set()); // Tracks claimed chapters
+  const [userPoints, setUserPoints] = useState<number>(0); // User's current points
+
   const mainChapters = CHAPTERS.slice(1); // All chapters except the prologue
   const chapterGroups = getChapterGroups(mainChapters, 10);
+
+  const { fetchClaimedChapters, handleAddPoints } = useChapterPointsHandler({
+    walletData,
+    setUserPoints,
+    setClaimedChapters,
+  });
 
   const toggleGroup = (groupIndex: number) => {
     setExpandedGroups((prev) => {
@@ -48,14 +57,25 @@ export const Novel: React.FC<NovelProps> = ({ walletData, isWalletConnected }) =
         setChapterText(module.default || module); // Set text from the dynamically imported file
       }
     };
-  
+
     loadChapterText();
-  
+
     // Scroll to top when the chapter index changes
-    window.scrollTo({
-      top: 0,
-    });
-  }, [currentChapterIndex]);  
+    window.scrollTo({ top: 0 });
+  }, [currentChapterIndex]);
+
+  useEffect(() => {
+    if (isWalletConnected && walletData?.Address) {
+      fetchClaimedChapters();
+    }
+  }, [isWalletConnected, walletData, fetchClaimedChapters]);
+
+  const handleClaimPoints = () => {
+    if (!isWalletConnected || !walletData?.Address || currentChapterIndex === null) return;
+    if (claimedChapters.has(currentChapterIndex)) return; // Prevent claiming twice
+
+    handleAddPoints(50, currentChapterIndex); // Claim 50 points for the current chapter
+  };
 
   const currentChapter: Chapter | null =
     currentChapterIndex !== null ? CHAPTERS[currentChapterIndex] : null;
@@ -99,7 +119,7 @@ export const Novel: React.FC<NovelProps> = ({ walletData, isWalletConnected }) =
               {/* Table of Contents */}
               <div className="flex-grow p-4">
                 <h2 className="text-xl font-bold mb-4">Table of Contents</h2>
-                
+
                 {/* Prologue */}
                 <div className="mb-4">
                   <button
@@ -153,7 +173,7 @@ export const Novel: React.FC<NovelProps> = ({ walletData, isWalletConnected }) =
                       )}
                     </div>
                   );
-                })}           
+                })}
               </div>
             </>
           )}
@@ -173,7 +193,7 @@ export const Novel: React.FC<NovelProps> = ({ walletData, isWalletConnected }) =
               <h2 className="text-2xl font-bold mb-2">{currentChapter.title}</h2>
               {/* Chapter Text */}
               <p className="leading-relaxed whitespace-pre-line">{chapterText || 'Loading...'}</p>
-
+              
               {/* Navigation Buttons */}
               <div className="flex justify-between mt-8">
                 {/* Previous Chapter Button */}
@@ -191,7 +211,37 @@ export const Novel: React.FC<NovelProps> = ({ walletData, isWalletConnected }) =
                 >
                   Previous Chapter
                 </button>
-
+                
+                {/* Claim Points Button */}
+                <div className="text-center">
+                  {isWalletConnected ? (
+                    claimedChapters.has(currentChapterIndex!) ? (
+                      <button
+                        disabled
+                        className="bg-gray-600 text-white px-4 py-2 rounded cursor-not-allowed"
+                      >
+                        Already Claimed
+                      </button>
+                    ) : (
+                      <button
+                        onClick={handleClaimPoints}
+                        className="bg-emerald-600 text-white px-4 py-2 rounded hover:bg-emerald-700 transition-all duration-300"
+                      >
+                        Claim 50 Points
+                      </button>
+                    )
+                  ) : (
+                    <div className="relative group inline-block">
+                      <button
+                        disabled
+                        className="bg-gray-600 text-white px-4 py-2 rounded cursor-not-allowed"
+                      >
+                        Claim 50 Points
+                      </button>
+                    </div>
+                  )}
+                </div>       
+                
                 {/* Next Chapter Button */}
                 <button
                   onClick={() => setCurrentChapterIndex((currentChapterIndex ?? 0) + 1)}
