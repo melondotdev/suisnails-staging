@@ -18,7 +18,7 @@ export const CHAPTERS: Chapter[] = [
   {
     title: 'Chapter 1',
     textLoader: () => import('../lib/chapters/chapter1.txt?raw'),
-    published: true,
+    published: false,
   },
   {
     title: 'Chapter 2',
