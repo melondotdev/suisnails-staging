@@ -7,7 +7,7 @@ import {
   bookSummary,
   bookTitle,
 } from '../utils/novel_chapters';
-import { getChapterGroups } from '../components/novel/groupChapters';
+import { getChapterGroupsByNumber } from '../components/novel/groupChapters';
 import { useChapterPointsHandler } from '../components/novel/useChapterPointsHandler';
 
 interface WalletData {
@@ -29,7 +29,7 @@ export const Novel: React.FC<NovelProps> = ({ walletData, isWalletConnected }) =
   const [userPoints, setUserPoints] = useState<number>(0); // User's current points
 
   const mainChapters = CHAPTERS.slice(1); // All chapters except the prologue
-  const chapterGroups = getChapterGroups(mainChapters, 10);
+  const chapterGroups = getChapterGroupsByNumber(mainChapters);
 
   const { fetchClaimedChapters, handleAddPoints } = useChapterPointsHandler({
     walletData,
@@ -48,7 +48,7 @@ export const Novel: React.FC<NovelProps> = ({ walletData, isWalletConnected }) =
       return newSet;
     });
   };
-
+  
   useEffect(() => {
     const loadChapterText = async () => {
       if (currentChapterIndex !== null) {
@@ -123,7 +123,7 @@ export const Novel: React.FC<NovelProps> = ({ walletData, isWalletConnected }) =
                 {/* Prologue */}
                 <div className="mb-4">
                   <button
-                    onClick={() => setCurrentChapterIndex(0)} // Prologue index is 0
+                    onClick={() => setCurrentChapterIndex(0)}
                     className={`w-full text-left bg-gray-800 p-2 rounded flex items-center ${
                       CHAPTERS[0].published ? 'hover:bg-gray-700' : 'text-gray-400 cursor-not-allowed'
                     }`}
@@ -133,47 +133,37 @@ export const Novel: React.FC<NovelProps> = ({ walletData, isWalletConnected }) =
                   </button>
                 </div>
 
-                {/* Main Chapters */}
-                {chapterGroups.map((group, groupIndex) => {
-                  const startChapter = groupIndex * 10 + 1;
-                  const endChapter = startChapter + group.length - 1;
-                  const isExpanded = expandedGroups.has(groupIndex);
-                  return (
-                    <div key={groupIndex} className="mb-4">
-                      <button
-                        onClick={() => toggleGroup(groupIndex)}
-                        className="w-full text-left bg-gray-800 hover:bg-gray-700 p-2 rounded"
-                      >
-                        {`Chapters ${startChapter}-${endChapter} ${isExpanded ? '▲' : '▼'}`}
-                      </button>
-                      {isExpanded && (
-                        <ul className="mt-2 pl-4 border-l border-gray-700">
-                          {group.map((chapter, chapterIdx) => {
-                            const absoluteChapterIndex = groupIndex * 10 + chapterIdx + 1; // Offset by 1 for the prologue
-                            const isPublished = CHAPTERS[absoluteChapterIndex].published;
-
-                            return (
-                              <li key={chapterIdx} className="mb-2 flex items-center">
-                                <button
-                                  onClick={() => isPublished && setCurrentChapterIndex(absoluteChapterIndex)}
-                                  disabled={!isPublished} // Disable if unpublished
-                                  className={`flex-grow text-left ${
-                                    isPublished
-                                      ? 'text-emerald-400 hover:underline'
-                                      : 'text-gray-400 cursor-not-allowed'
-                                  }`}
-                                >
-                                  {chapter.title}
-                                </button>
-                                {!isPublished && <span className="ml-2 text-gray-400">🔒</span>}
-                              </li>
-                            );
-                          })}
-                        </ul>
-                      )}
-                    </div>
-                  );
-                })}
+                {/* Main Chapters and Partial Chapters */}
+                {chapterGroups.map(({ groupTitle, chapters }, groupIndex) => (
+                  <div key={groupIndex} className="mb-4">
+                    <button
+                      onClick={() => toggleGroup(groupIndex)}
+                      className="w-full text-left bg-gray-800 hover:bg-gray-700 p-2 rounded"
+                    >
+                      {groupTitle} {expandedGroups.has(groupIndex) ? '▲' : '▼'}
+                    </button>
+                    {expandedGroups.has(groupIndex) && (
+                      <ul className="mt-2 pl-4 border-l border-gray-700">
+                        {chapters.map((chapter, chapterIdx) => (
+                          <li key={chapterIdx} className="mb-2 flex items-center">
+                            <button
+                              onClick={() => setCurrentChapterIndex(CHAPTERS.indexOf(chapter))}
+                              disabled={!chapter.published}
+                              className={`flex-grow text-left ${
+                                chapter.published
+                                  ? 'text-emerald-400 hover:underline'
+                                  : 'text-gray-400 cursor-not-allowed'
+                              }`}
+                            >
+                              {chapter.title}
+                            </button>
+                            {!chapter.published && <span className="ml-2 text-gray-400">🔒</span>}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                ))}      
               </div>
             </>
           )}
