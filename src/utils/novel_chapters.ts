@@ -16,14 +16,24 @@ export const CHAPTERS: Chapter[] = [
     published: true, // Accessible by everyone
   },
   {
-    title: 'Chapter 1',
-    textLoader: () => import('../lib/chapters/chapter1.txt?raw'),
+    title: 'Chapter 1.1',
+    textLoader: () => import('../lib/chapters/chapter1-1.txt?raw'),
+    published: true,
+  },
+  {
+    title: 'Chapter 1.2',
+    textLoader: () => import('../lib/chapters/chapter2.txt?raw'),
+    published: false, // Unpublished, restrict access
+  },
+  {
+    title: 'Chapter 1.3',
+    textLoader: () => import('../lib/chapters/chapter2.txt?raw'),
     published: false,
   },
   {
     title: 'Chapter 2',
     textLoader: () => import('../lib/chapters/chapter2.txt?raw'),
-    published: false, // Unpublished, restrict access
+    published: false,
   },
   {
     title: 'Chapter 3',
