@@ -75,11 +75,11 @@ export const Clicker: React.FC<ClickerProps> = ({ walletData, isWalletConnected 
       <div className="relative z-10 max-w-7xl mx-auto px-4 py-16">
         {/* Back Button */}
         <button
-          onClick={() => navigate('/abyss')}
+          onClick={() => navigate('/game')}
           className="flex items-center text-gray-400 hover:text-emerald-400 transition-all duration-300 mb-6"
         >
           <span className="mr-2 text-2xl">&larr;</span> {/* Thin Back Arrow */}
-          <span className="text-lg tracking-widest">back to abyss</span>
+          <span className="text-lg tracking-widest">back</span>
         </button>
 
         {/* Title */}

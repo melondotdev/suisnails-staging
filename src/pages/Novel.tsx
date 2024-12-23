@@ -9,6 +9,7 @@ import {
 } from '../utils/novel_chapters';
 import { getChapterGroupsByNumber } from '../components/novel/groupChapters';
 import { useChapterPointsHandler } from '../components/novel/useChapterPointsHandler';
+import { ChevronRight, ChevronLeft } from 'lucide-react';
 
 interface WalletData {
   Address?: string;
@@ -92,14 +93,16 @@ export const Novel: React.FC<NovelProps> = ({ walletData, isWalletConnected }) =
             ${isMinimized ? 'w-12' : 'w-64'} flex flex-col overflow-y-auto mt-24 scrollbar-dark
           `}
         >
-          {/* Minimize Button */}
-          <div className="p-2 flex justify-end">
+          {/* Sticky Header Section */}
+          <div
+            className="sticky top-0 z-10 flex items-center justify-end p-2"
+          >
             <button
               onClick={() => setIsMinimized((prev) => !prev)}
               className="text-gray-400 hover:text-gray-200"
               title={isMinimized ? 'Expand' : 'Minimize'}
             >
-              {isMinimized ? '▶' : '◀'}
+              {isMinimized ? <ChevronRight /> : <ChevronLeft />}
             </button>
           </div>
 

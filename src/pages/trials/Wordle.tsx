@@ -83,11 +83,11 @@ export const Wordle: React.FC<WordleProps> = ({ walletData, isWalletConnected })
       <div className="relative z-10 max-w-7xl mx-auto px-4 py-16">
         {/* Back Button */}
         <button
-          onClick={() => navigate('/abyss')}
+          onClick={() => navigate('/game')}
           className="flex items-center text-gray-400 hover:text-gray-200 transition-all duration-300 mb-6"
         >
           <span className="mr-2 text-2xl">&larr;</span> {/* Thin Back Arrow */}
-          <span className="text-lg tracking-widest">back to abyss</span>
+          <span className="text-lg tracking-widest">back</span>
         </button>
 
         <h1 className="text-4xl font-bold mb-6 text-center">The Whispering Cypher</h1>
