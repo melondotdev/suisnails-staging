@@ -17,13 +17,13 @@ export const CHAPTERS: Chapter[] = [
   },
   {
     title: 'Chapter 1',
-    textLoader: () => import('../lib/chapters/chapter1-1.txt?raw'),
+    textLoader: () => import('../lib/chapters/chapter1.txt?raw'),
     published: true,
   },
   {
     title: 'Chapter 2',
     textLoader: () => import('../lib/chapters/chapter2.txt?raw'),
-    published: false,
+    published: true,
   },
   {
     title: 'Chapter 3',

@@ -46,7 +46,7 @@ function App() {
     
     return () => clearInterval(intervalId); // Cleanup interval on component unmount
   }, [connectionStatus, currentWallet]);
-
+  
   return (
     <div className="min-h-screen bg-black text-gray-200 font-mono">
       <Router>
